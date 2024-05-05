@@ -19,9 +19,9 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
+                            <th>Kategori</th>
                             <th>Email</th>
-                            <th>Event Date</th>
-                            <th>Event Location</th>
+                            <th>Link</th>
                             <th>Created At</th>
                             <th>Actions</th>
                         </tr>
@@ -33,8 +33,7 @@
                                 <td>{{ $invitation->name }}</td>
                                 <td>{{ $invitation->eventCategory->name }}</td>
                                 <td>{{ $invitation->email }}</td>
-                                <td>{{ $invitation->event_date }}</td>
-                                <td>{{ $invitation->event_location }}</td>
+                                <td><a href="{{route('public.invitations.show',$invitation->id)}}" target="_blank">LINK</a></td>
                                 <td>{{ $invitation->created_at->format('Y-m-d H:i:s') }}</td>
                                 <td>
                                     <a href="{{ route('admin.invitations.edit', $invitation->id) }}" class="btn btn-warning">Edit</a>

@@ -24,7 +24,7 @@ use App\Http\Controllers\PublicInvitationController;
 Auth::routes();
 
 // public
-Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class,'index'])->name('base');
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/invitations/{invitation}', [PublicInvitationController::class, 'show'])->name('public.invitations.show');
 
@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     
     // Invitations
     Route::get('/invitations', [AdminInvitationController::class, 'index'])->name('invitations.index');
-    Route::get('/admin/invitations/{invitation}', [AdminInvitationController::class, 'show'])->name('invitations.show');
+    Route::get('/invitations/{invitation}', [AdminInvitationController::class, 'show'])->name('invitations.show');
     Route::get('/invitations/create', [AdminInvitationController::class, 'create'])->name('invitations.create');
     Route::post('/invitations', [AdminInvitationController::class, 'store'])->name('invitations.store');
     Route::get('/invitations/{id}/edit', [AdminInvitationController::class, 'edit'])->name('invitations.edit');

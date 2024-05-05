@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Invitation;
 use App\Models\EventCategory;
+use App\Models\PrewedPhotoCategory; // Tambahkan model PrewedPhotoCategory
 
 class AdminInvitationController extends Controller
 {
@@ -16,13 +17,17 @@ class AdminInvitationController extends Controller
     
     public function show($invitation)
     {
+
         $invitation = Invitation::with([
             'eventCategory', 
             'wedding',
             'preweddingPhotos'
             ])->findOrFail($invitation);
         if ($invitation->eventCategory && $invitation->eventCategory->name == 'Pernikahan') {
-            return view('admin.invitations.show_wedding', compact('invitation'));
+
+            // Ambil semua kategori foto prewedding
+            $categories = PrewedPhotoCategory::with('preweddingPhotos')->get();
+            return view('admin.invitations.show_wedding', compact('invitation','categories'));
         } else {
             return view('admin.invitations.show_non_wedding', compact('invitation'));
         }
@@ -56,7 +61,7 @@ class AdminInvitationController extends Controller
         $invitation = Invitation::findOrFail($id);
         return view('admin.invitations.edit', compact('invitation','eventCategories'));
     }
-
+ 
     public function update(Request $request, $id)
     {
         $invitation = Invitation::findOrFail($id);

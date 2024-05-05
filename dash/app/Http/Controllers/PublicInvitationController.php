@@ -1,7 +1,5 @@
 <?php
 
-// app/Http/Controllers/PublicInvitationController.php
-
 namespace App\Http\Controllers;
 
 use App\Models\Invitation;
@@ -11,9 +9,9 @@ class PublicInvitationController extends Controller
 {
     public function show($invitationId)
     {
-        $invitation = Invitation::with(['wedding', 'preweddingPhotos'])->findOrFail($invitationId);
-
+        // Mengambil undangan dengan detail pernikahan dan foto prewedding
+        $invitation = Invitation::with(['wedding', 'preweddingPhotos', 'eventCategory'])->findOrFail($invitationId);
+        // dd( $invitation->preweddingPhotos);
         return view('public.show_invitation', compact('invitation'));
     }
 }
-

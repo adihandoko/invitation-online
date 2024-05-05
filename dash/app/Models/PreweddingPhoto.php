@@ -12,6 +12,7 @@ class PreweddingPhoto extends Model
     protected $fillable = [
         'invitation_id',
         'photo_path',
+        'category_id',
         // Tambahkan atribut lain yang diperlukan
     ];
 

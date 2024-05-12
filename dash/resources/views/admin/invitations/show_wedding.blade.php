@@ -27,7 +27,6 @@
                         <p><strong>Tanggal Pernikahan:</strong> {{ $invitation->wedding->wedding_date }}</p>
                         <p><strong>Tempat Pernikahan:</strong> {{ $invitation->wedding->wedding_venue }}</p>
                         <p><strong>Jumlah Tamu:</strong> {{ $invitation->wedding->number_of_guests }}</p>
-                        <!-- Tampilkan foto prewedding jika ada -->
                     @else
                         <!-- Tampilkan form untuk menambahkan data pernikahan jika belum ada -->
                         <h4>Tambahkan Detail Pernikahan:</h4>
@@ -55,7 +54,60 @@
                             <button type="submit" class="btn btn-primary">Tambahkan Detail Pernikahan</button>
                         </form>
                     @endif
+                </div><div class="col-md-12">
+                    <!-- Tambahkan form untuk menambahkan nomor rekening -->
+                    <h4>Tambahkan Nomor Rekening:</h4>
+                    <form action="{{ route('admin.rekening.store') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="wedding_id" value="{{ $invitation->wedding->id }}">
+                        <div class="form-group">
+                            <label for="nomor_rekening">Nomor Rekening</label>
+                            <input type="text" name="nomor_rekening" id="nomor_rekening" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="atas_nama">Atas Nama</label>
+                            <input type="text" name="atas_nama" id="atas_nama" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="master_bank_id">Bank</label>
+                            <select name="master_bank_id" id="master_bank_id" class="form-control" required>
+                                <option value="">Pilih Bank</option>
+                                @foreach ($masterBanks as $bank)
+                                    <option value="{{ $bank->id }}">{{ $bank->nama_bank }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <!-- Tambahkan kolom-kolom lain sesuai kebutuhan -->
+                        <button type="submit" class="btn btn-primary">Tambahkan Nomor Rekening</button>
+                    </form>
+                    <!-- Inside your existing HTML code -->
+                    @if ($bankAccounts->isNotEmpty())
+                        <h4>Rekening Bank:</h4>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Nomor Rekening</th>
+                                        <th>Atas Nama</th>
+                                        <th>Bank</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($bankAccounts as $account)
+                                        <tr>
+                                            <td>{{ $account->nomor_rekening }}</td>
+                                            <td>{{ $account->atas_nama }}</td>
+                                            <td>{{ $account->masterBank->nama_bank }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    @else
+                        <p>Tidak ada rekening bank terkait.</p>
+                    @endif
                 </div>
+                
                 <div class="col-md-12">
                     @if ($invitation->preweddingPhotos->isNotEmpty())
                         <!-- Tampilkan foto prewedding dengan nama kategori -->

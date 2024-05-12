@@ -46,12 +46,16 @@ export const request = (method, path) => {
                 .catch((err) => alert(err));
         },
         token(token) {
-            if (token.split('.').length === 3) {
-                req.headers.append('Authorization', 'Bearer ' + token);
-                return this;
-            }
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-            req.headers.append('x-access-key', token);
+            req.headers.append('X-CSRF-TOKEN', csrfToken);
+            
+            // if (token.split('.').length === 3) {
+            //     req.headers.append('Authorization', 'Bearer ' + token);
+            //     return this;
+            // }
+
+            // req.headers.append('x-access-key', token);
             return this;
         },
         body(body) {

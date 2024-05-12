@@ -5,16 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PrewedPhotoCategory extends Model
+class MasterBank extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id',
-        'name',
+        'nama_bank' , 'logo_url'
     ];
-    public function preweddingPhotos()
+    public function rekeningTransfers()
     {
-        return $this->hasMany(PreweddingPhoto::class, 'category_id');
+        return $this->hasMany(RekeningTransfer::class);
     }
 }

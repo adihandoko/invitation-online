@@ -7,7 +7,7 @@ export const card = (() => {
 
     const user = storage('user');
     const owns = storage('owns');
-    const likes = storage('likes');
+    // const likes = storage('likes');
     const config = storage('config');
     const tracker = storage('tracker');
     const session = storage('session');
@@ -46,29 +46,26 @@ export const card = (() => {
 
     const renderLike = (comment) => {
         return `
-        <button style="font-size: 0.8rem;" onclick="like.like(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-2 p-0">
-            <div class="d-flex justify-content-start align-items-center">
-                <p class="my-0 mx-1" data-count-like="${comment.like.love}">${comment.like.love} like</p>
-                <i class="me-1 ${likes.has(comment.uuid) ? 'fa-solid fa-heart text-danger' : 'fa-regular fa-heart'}"></i>
-            </div>
+        <button style="font-size: 0.8rem;" onclick="like.like(this)" data-id="${comment.id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-2 p-0">
+            
         </button>`;
     };
 
     const renderAction = (comment) => {
         let action = '';
 
-        if (config.get('can_reply') == true || config.get('can_reply') === undefined) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.reply(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Reply</button>`;
-        }
+        // if (config.get('can_reply') == true || config.get('can_reply') === undefined) {
+        //     action += `<button style="font-size: 0.8rem;" onclick="comment.reply(this)" data-id="${comment.id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Reply</button>`;
+        // }
 
-        if (owns.has(comment.uuid) && (config.get('can_edit') == true || config.get('can_edit') === undefined)) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Edit</button>`;
+        if (owns.has(comment.id) && (config.get('can_edit') == true || config.get('can_edit') === undefined)) {
+            action += `<button style="font-size: 0.8rem;" onclick="comment.edit(this)" data-id="${comment.id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0 me-1">Edit</button>`;
         }
 
         if (session.get('token')?.split('.').length === 3) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0" data-own="${comment.own}">Delete</button>`;
-        } else if (owns.has(comment.uuid) && (config.get('can_delete') == true || config.get('can_delete') === undefined)) {
-            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-uuid="${comment.uuid}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0">Delete</button>`;
+            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-id="${comment.id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0" data-own="${comment.own}">Delete</button>`;
+        } else if (owns.has(comment.id) && (config.get('can_delete') == true || config.get('can_delete') === undefined)) {
+            action += `<button style="font-size: 0.8rem;" onclick="comment.remove(this)" data-id="${comment.id}" class="btn btn-sm btn-outline-${theme.isDarkMode('light', 'dark')} rounded-3 py-0">Delete</button>`;
         }
 
         return action;
@@ -76,7 +73,7 @@ export const card = (() => {
 
     const renderButton = (comment) => {
         return `
-        <div class="d-flex flex-wrap justify-content-between align-items-center" id="button-${comment.uuid}">
+        <div class="d-flex flex-wrap justify-content-between align-items-center" id="button-${comment.id}">
             <div class="d-flex flex-wrap justify-content-start align-items-center">
                 ${renderAction(comment)}
             </div>
@@ -93,7 +90,7 @@ export const card = (() => {
 
         return `
         <div class="p-2 my-2 rounded-3 border">
-            <p class="text-${theme.isDarkMode('light', 'dark')} mb-1 mx-0 mt-0 p-0" style="font-size: 0.7rem;" id="ip-${comment.uuid}"><i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} ${tracker.has(comment.ip) ? `<strong>${tracker.get(comment.ip)}</strong>` : `<span class="mb-1 placeholder col-2 rounded-3"></span>`}</p>
+            <p class="text-${theme.isDarkMode('light', 'dark')} mb-1 mx-0 mt-0 p-0" style="font-size: 0.7rem;" id="ip-${comment.id}"><i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} ${tracker.has(comment.ip) ? `<strong>${tracker.get(comment.ip)}</strong>` : `<span class="mb-1 placeholder col-2 rounded-3"></span>`}</p>
             <p class="text-${theme.isDarkMode('light', 'dark')} m-0 p-0" style="font-size: 0.7rem;"><i class="fa-solid fa-mobile-screen-button me-1"></i>${util.escapeHtml(comment.user_agent)}</p>
         </div>`;
     };
@@ -111,9 +108,9 @@ export const card = (() => {
             return `<strong class="me-1">${util.escapeHtml(user.get('name') ?? config.get('name'))}</strong><i class="fa-solid fa-certificate text-primary"></i>`;
         }
 
-        if (is_parent) {
-            return `<strong class="me-1">${util.escapeHtml(comment.name)}</strong><i class="fa-solid ${comment.presence ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>`;
-        }
+        // if (is_parent) {
+        //     return `<strong class="me-1">${util.escapeHtml(comment.name)}</strong><i class="fa-solid ${comment.presence ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger'}"></i>`;
+        // }
 
         return `<strong>${util.escapeHtml(comment.name)}</strong>`;
     };
@@ -125,39 +122,39 @@ export const card = (() => {
             <small class="text-${theme.isDarkMode('light', 'dark')} m-0 p-0" style="font-size: 0.75rem;">${comment.created_at}</small>
         </div>
         <hr class="text-${theme.isDarkMode('light', 'dark')} my-1">
-        <p class="text-${theme.isDarkMode('light', 'dark')} mt-0 mb-1 mx-0 p-0" style="white-space: pre-wrap !important" id="content-${comment.uuid}">${convertMarkdownToHTML(util.escapeHtml(comment.comment))}</p>`;
+        <p class="text-${theme.isDarkMode('light', 'dark')} mt-0 mb-1 mx-0 p-0" style="white-space: pre-wrap !important" id="content-${comment.id}">${convertMarkdownToHTML(util.escapeHtml(comment.comment))}</p>`;
     };
 
     const renderContent = (comment, is_parent) => {
         return `
-        <div ${renderHeader(is_parent)} id="${comment.uuid}">
+        <div class="col-md-6">
+        <div ${renderHeader(is_parent)} id="comments-${comment.id}">
             ${renderBody(comment, is_parent)}
             ${renderTracker(comment)}
-            ${renderButton(comment)}
-            ${comment.comments.map((c) => renderContent(c, false)).join('')}
+        </div>
         </div>`;
     };
 
-    const fetchTracker = (comment) => {
-        comment.comments.map((c) => fetchTracker(c));
+    // const fetchTracker = (comment) => {
+    //     comment.comments.map((c) => fetchTracker(c));
 
-        if (comment.ip === undefined || comment.user_agent === undefined || comment.is_admin || tracker.has(comment.ip)) {
-            return;
-        }
+    //     if (comment.ip === undefined || comment.user_agent === undefined || comment.is_admin || tracker.has(comment.ip)) {
+    //         return;
+    //     }
 
-        fetch(`https://freeipapi.com/api/json/${comment.ip}`)
-            .then((res) => res.json())
-            .then((res) => {
-                const result = res.cityName + ' - ' + res.regionName;
+    //     fetch(`https://freeipapi.com/api/json/${comment.ip}`)
+    //         .then((res) => res.json())
+    //         .then((res) => {
+    //             const result = res.cityName + ' - ' + res.regionName;
 
-                tracker.set(comment.ip, result);
-                document.getElementById(`ip-${comment.uuid}`).innerHTML = `<i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} <strong>${result}</strong>`;
-            })
-            .catch((err) => console.error(err));
-    };
+    //             tracker.set(comment.ip, result);
+    //             document.getElementById(`ip-${comment.id}`).innerHTML = `<i class="fa-solid fa-location-dot me-1"></i>${util.escapeHtml(comment.ip)} <strong>${result}</strong>`;
+    //         })
+    //         .catch((err) => console.error(err));
+    // };
 
     return {
-        fetchTracker,
+        // fetchTracker,
         renderLoading,
         renderContent: (comment) => renderContent(comment, true),
         convertMarkdownToHTML

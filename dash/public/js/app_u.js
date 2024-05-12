@@ -13,3 +13,4 @@ window.audio = audio;
 window.comment = comment;
 window.progress = progress;
 window.pagination = pagination;
+comment.comment();

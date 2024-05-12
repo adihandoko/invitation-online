@@ -89,25 +89,16 @@ export const comment = (() => {
     };
 
     const send = async (button) => {
-        const id = button.getAttribute('data-uuid');
+        console.log("tas")
+        const id = button.getAttribute('data-wedding_id');
 
         const name = document.getElementById('form-name');
         if (name.value.length == 0) {
             alert('Please fill name');
             return;
         }
-
-        const presence = document.getElementById('form-presence');
-        if (!id && presence && presence.value == "0") {
-            alert('Please select presence');
-            return;
-        }
-
-        if (presence) {
-            presence.disabled = true;
-        }
-
         const form = document.getElementById(`form-${id ? `inner-${id}` : 'comment'}`);
+        console.log(form)
         form.disabled = true;
 
         const cancel = document.querySelector(`[onclick="comment.cancel('${id}')"]`);
@@ -117,12 +108,11 @@ export const comment = (() => {
 
         const btn = util.disableButton(button);
 
-        const response = await request(HTTP_POST, '/api/comment')
+        const response = await request(HTTP_POST, '/api/comment_weddings')
             .token(session.get('token'))
             .body({
-                id: id,
+                wedding_id: id,
                 name: name.value,
-                presence: presence ? presence.value === "1" : true,
                 comment: form.value
             })
             .then();
@@ -130,10 +120,6 @@ export const comment = (() => {
         form.disabled = false;
         if (cancel) {
             cancel.disabled = false;
-        }
-
-        if (presence) {
-            presence.disabled = false;
         }
 
         btn.restore();
@@ -218,10 +204,10 @@ export const comment = (() => {
     };
 
     const comment = async () => {
+        const id = document.getElementById(`button-id`).getAttribute('data-wedding_id');
         card.renderLoading();
 
-        await request(HTTP_GET, `/api/comment?per=${pagination.getPer()}&next=${pagination.getNext()}`)
-            .token(session.get('token'))
+        await request(HTTP_GET, `/api/comment_weddings/${id}`)
             .then((res) => {
                 if (res.code !== 200) {
                     return;
@@ -236,7 +222,7 @@ export const comment = (() => {
                 }
 
                 comments.innerHTML = res.data.map((comment) => card.renderContent(comment)).join('');
-                res.data.map((c) => card.fetchTracker(c));
+                // res.data.map((c) => card.fetchTracker(c));
             });
     };
 

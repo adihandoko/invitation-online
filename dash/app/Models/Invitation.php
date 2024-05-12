@@ -9,7 +9,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne; // Perbaiki import ini
 class Invitation extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'event_date', 'event_location','deleted_at','event_category_id'];
+
+    protected $fillable = [
+        'name', 'email', 'event_date', 'event_location', 'event_category_id', 'slug'
+    ];
 
     // Relasi dengan model EventCategory
     public function eventCategory()
@@ -26,4 +29,16 @@ class Invitation extends Model
     {
         return $this->hasMany(PreweddingPhoto::class);
     }
+
+    public function generateSlug()
+    {
+        return Str::slug($this->name);
+    }
+
+    public function getSlugAttribute($value)
+    {
+        return $value ?: $this->generateSlug();
+    }
+
+
 }

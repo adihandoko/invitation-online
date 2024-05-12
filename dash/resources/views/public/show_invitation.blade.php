@@ -162,7 +162,7 @@
                 <h1 class="font-esthetic py-4 px-2" style="font-size: 2rem">Assalamualaikum Warahmatullahi Wabarakatuh</h1>
 
                 <p class="pb-3 px-3">
-                    Tanpa mengurangi rasa hormat. Kami mengundang Bapak/Ibu/Saudara/i serta kerabat
+                    Tanpa mengurangi rasa hormat. Kami mengundang {{$to}} serta kerabat
                     sekalian untuk menghadiri acara pernikahan kami:
                 </p>
 

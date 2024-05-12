@@ -32,6 +32,7 @@ Auth::routes();
 Route::get('/', [HomeController::class,'index'])->name('base');
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/invitations/{invitation}', [PublicInvitationController::class, 'show'])->name('public.invitations.show');
+Route::get('/invitations/{invitation}/{to}', [PublicInvitationController::class, 'showto'])->name('public.invitations.showto');
 
 // Authentication Routes...
 // Admin routes

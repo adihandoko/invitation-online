@@ -47,6 +47,7 @@ class PublicInvitationController extends Controller
         $wedding_date = Carbon::parse($invitation->wedding->wedding_date)->format('l, j F Y');
         $event_date = Carbon::parse($invitation->event_date)->format('Ymd\THis');
         
+        $unduhMantu = "Sunday, 9 June 2024";
         $to ="Bapak/Ibu/Saudara/i";
         return view('public.show_invitation', compact(
             'invitation', 
@@ -55,7 +56,8 @@ class PublicInvitationController extends Controller
             'akad_date',
             'wedding_date',
             'bankAccounts',
-            'to' // Pass bank account information to the view
+            'to',
+            'unduhMantu', // Pass bank account information to the view
         ));
     }
     public function showto($invitationId,$to)
@@ -89,11 +91,13 @@ class PublicInvitationController extends Controller
         // dd($bankAccounts[0]->masterBank->nama_bank);
 
         // Format event date
-        $invitation->event_date = Carbon::parse($invitation->event_date)->translatedFormat('l, j F Y');
-        $akad_date = Carbon::parse($invitation->wedding->akad_date)->format('l, j F Y');
-        $wedding_date = Carbon::parse($invitation->wedding->wedding_date)->format('l, j F Y');
+
         $event_date = Carbon::parse($invitation->event_date)->format('Ymd\THis');
-        
+        \Carbon\Carbon::setLocale('id');
+        $invitation->event_date = Carbon::parse($invitation->event_date)->translatedFormat('l, j F Y');
+        $akad_date = Carbon::parse($invitation->wedding->akad_date)->translatedFormat('l, j F Y');
+        $wedding_date = Carbon::parse($invitation->wedding->wedding_date)->translatedFormat('l, j F Y');
+        $unduhMantu = "Minggu, 23 June 2024";
         return view('public.show_invitation', compact(
             'invitation', 
             'photosByCategory',
@@ -101,7 +105,8 @@ class PublicInvitationController extends Controller
             'akad_date',
             'wedding_date',
             'bankAccounts',
-            'to', // Pass bank account information to the view
+            'to',
+            'unduhMantu', // Pass bank account information to the view
         ));
     }
 }

@@ -12,7 +12,7 @@ class MigrationController extends Controller
         // Run migrations
         Artisan::call('migrate');
 
-        Artisan::call('db:seed');
+        // Artisan::call('db:seed');
         return response()->json(['message' => 'Migrations executed successfully']);
     }
     public function clear()

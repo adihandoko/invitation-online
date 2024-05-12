@@ -123,7 +123,7 @@
                 </div>
 
                 <h1 class="font-esthetic my-4" style="font-size: 3rem;">{{$invitation->wedding->groom_name}} & {{$invitation->wedding->bride_name}}</h1>
-                <p class="mb-0" style="font-size: 1.5rem;">{{ $invitation->event_date }} </p>
+                <p class="mb-0" style="font-size: 1.5rem;">{{ $akad_date }} </p>
 
                 <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}}&details=The%20Wedding%20of%{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}} {{$invitation->event_location}}&dates={{$event_date}}&location={{$invitation->gmap}}">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
@@ -308,23 +308,39 @@
 
                     <div class="overflow-x-hidden">
                         <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
-                            <h1 class="font-esthetic" style="font-size: 2rem;">Akad</h1>
+                            <h1 class="font-esthetic" style="font-size: 2rem;">Resepsi & Akad</h1>
                             <p>{{$akad_date}}</p>
+                            <p>Pukul 08:00 - selesai</p>
                         </div>
 
+                        <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
+                            <a href="{{$invitation->gmap}}" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                                <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
+                            </a>
+                            <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
+                                {{$invitation->event_location}}
+                            </p>
+                        </div>
+                        {{-- 
                         <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
                             <h1 class="font-esthetic" style="font-size: 2rem;">Resepsi</h1>
                             <p>{{$wedding_date}}</p>
-                        </div>
-                    </div>
+                        </div> --}}
 
-                    <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
-                        <a href="{{$invitation->gmap}}" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
-                            <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
-                        </a>
-                        <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
-                            {{$invitation->event_location}}
-                        </p>
+                        <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
+                            <h1 class="font-esthetic" style="font-size: 2rem;">Unduh Mantu</h1>
+                            <p>{{$unduhMantu}}</p>
+                            <p>Pukul 09:00 - selesai</p>
+                        </div>
+
+                        <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
+                            <a href="https://maps.app.goo.gl/aCn7uhNu1oEskm3y8" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                                <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
+                            </a>
+                            <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
+                                Terban Jetis Juwiring Klaten
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -473,11 +489,11 @@
 
                     <div class="mb-3">
                         <label for="form-comment" class="form-label">Ucapan & Doa</label>
-                        {{-- <div id="information" class="alert alert-info alert-dismissible fade show" role="alert">
+                        <div id="information" class="alert alert-info alert-dismissible fade show" role="alert" style="display:none">
                             <p style="font-size: 1.5rem;">Bestieee!!!</p>
                             <p class="m-0">Sekarang bisa format text seperti whatsapp lohh... cobainn sekaranggg, makaciwww bestieee</p>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="localStorage.setItem('alertClosed', 'true');"></button>
-                        </div> --}}
+                        </div>
                         <textarea class="form-control shadow-sm" id="form-inner-{{$invitation->wedding->id}}" rows="4" placeholder="Tulis Ucapan & Doa"></textarea>
                     </div>
 
@@ -531,7 +547,7 @@
 
                 <hr class="mt-3 mb-2">
 
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                {{-- <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto">
                         <small class="text-light">
                             Build with<i class="fa-solid fa-heart mx-1"></i>Dewanakl
@@ -545,7 +561,7 @@
                             <i class="fa-brands fa-youtube me-1"></i><a target="_blank" href="https://www.youtube.com/watch?v=1WCIrw85zbQ">I Wanna Grow Old with You</a>
                         </small>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </footer>
@@ -584,7 +600,8 @@
     <div class="loading-page bg-white" id="loading" style="opacity: 1;">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
             <div class="w-75 text-center">
-                <img class="img-fluid mb-3" src="{{route('base')}}/assets/images/icon-192x192.png" alt="icon" style="width: 3.5rem;">
+                <h1 class="font-esthetic my-4" style="font-size: 2.5rem;"> Handoko &amp; Ega</h1>
+                {{-- <img class="img-fluid mb-3" src="{{route('base')}}/assets/images/icon-192x192.png" alt="icon" style="width: 3.5rem;"> --}}
                 <div class="progress" role="progressbar" style="height: 0.5rem;">
                     <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
                 </div>

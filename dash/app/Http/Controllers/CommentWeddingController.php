@@ -33,8 +33,8 @@ class CommentWeddingController extends Controller
                         'id' => $comment->id,
                         'name' => $comment->name,
                         'comment' => $comment->comment,
-                        'created_at' => Carbon::parse($comment->created_at)->format('d-m-Y H:i:s'),
-                        'updated_at' => Carbon::parse($comment->updated_at)->format('d-m-Y H:i:s')
+                        'created_at' => Carbon::parse($comment->created_at)->format('d F Y H:i'),
+                        'updated_at' => Carbon::parse($comment->updated_at)->format('d-F-Y H:i')
                     ];
                 });
 

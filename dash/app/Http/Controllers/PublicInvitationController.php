@@ -26,7 +26,6 @@ class PublicInvitationController extends Controller
 
         // Menggabungkan hasil query
         $prewedPhotoCategories = $relatedCategories->union($unrelatedCategories)->get();
-        
         // Buat array asosiatif dengan nama kategori sebagai kunci
         $photosByCategory = [];
         foreach ($prewedPhotoCategories as $category) {
@@ -36,7 +35,6 @@ class PublicInvitationController extends Controller
             }
             $photosByCategory[$category->name] = $photos;
         }
-
         // Retrieve bank information for the wedding
         $bankAccounts = RekeningTransfer::with('masterBank')
             ->where('wedding_id', $invitation->wedding->id)

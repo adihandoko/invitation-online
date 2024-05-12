@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" data-bs-theme="dark">
+<html lang="id" data-bs-theme="light">
 
 <head>
     <script src="{{ asset('js/app_u.js') }}" type="module" defer></script>
@@ -33,7 +33,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
     <meta name="theme-color" content="#111111">
-    <meta name="color-scheme" content="dark">
+    <meta name="color-scheme" content="light">
     <link rel="canonical" href="{{route('base')}}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
     <link rel="apple-touch-icon" sizes="192x192" type="image/png" href="{{ asset('assets/images/icon-192x192.png')}}">
@@ -72,7 +72,7 @@
 <body data-key="bfb9cfea33ab7ae21a315fbd6f065a815d3e20ff2f007aa2ca" data-url="{{route('base')}}" style="overflow-y: hidden;">
 
     <!-- Navbar Bottom -->
-    <nav class="navbar bg-dark navbar-expand fixed-bottom rounded-top-4 p-0" id="navbar-menu">
+    <nav class="navbar bg-light navbar-expand fixed-bottom rounded-top-4 p-0" id="navbar-menu">
         <ul class="navbar-nav nav-justified w-100 align-items-center">
             <li class="nav-item">
                 <a class="nav-link" href="#home">
@@ -108,7 +108,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="bg-dark text-light" data-bs-spy="scroll" data-bs-target="#navbar-menu" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
+    <main class="bg-light text-light" data-bs-spy="scroll" data-bs-target="#navbar-menu" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" tabindex="0">
 
         <!-- Home -->
         <section class="container" id="home">
@@ -140,12 +140,12 @@
         </section>
 
         <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-black">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
             <path fill="currentColor" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,106.7C384,117,480,171,576,165.3C672,160,768,96,864,96C960,96,1056,160,1152,154.7C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
 
         <!-- Mempelai -->
-        <section class="dark-section bg-black" id="mempelai">
+        <section class="light-section bg-white" id="mempelai">
 
             <div class="text-center">
                 <h1 class="font-arabic py-4 px-2" style="font-size: 2rem">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h1>
@@ -229,7 +229,7 @@
         </section>
 
         <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-black">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
             <path fill="currentColor" fill-opacity="1" d="M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,165.3C560,160,640,128,720,128C800,128,880,160,960,186.7C1040,213,1120,235,1200,218.7C1280,203,1360,149,1400,122.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path>
         </svg>
 
@@ -262,12 +262,12 @@
         </div>
 
         <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-black">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
             <path fill="currentColor" fill-opacity="1" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path>
         </svg>
 
         <!-- Tanggal -->
-        <section class="dark-section bg-black" id="tanggal">
+        <section class="light-section bg-white" id="tanggal">
 
             <div class="container">
                 <div class="text-center">
@@ -340,7 +340,7 @@
         </div>
 
         <!-- Galeri Foto -->
-        <section class="dark-section bg-black" id="galeri">
+        <section class="light-section bg-white" id="galeri">
 
             <div class="container pb-2 pt-4">
                 <div class="card-body border rounded-4 shadow p-3">
@@ -411,7 +411,7 @@
         </section>
 
         <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-black">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
             <path fill="currentColor" fill-opacity="1" d="M0,96L30,106.7C60,117,120,139,180,154.7C240,171,300,181,360,186.7C420,192,480,192,540,181.3C600,171,660,149,720,154.7C780,160,840,192,900,208C960,224,1020,224,1080,208C1140,192,1200,160,1260,138.7C1320,117,1380,107,1410,101.3L1440,96L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path>
         </svg>
 
@@ -511,13 +511,13 @@
         </section>
 
         <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-black">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
             <path fill="currentColor" fill-opacity="1" d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
         </svg>
     </main>
 
     <!-- Footer Undangan -->
-    <footer class="bg-black">
+    <footer class="bg-white">
         <div class="container">
             <div class="text-center">
 
@@ -551,7 +551,7 @@
     </footer>
 
     <!-- Welcome Page -->
-    <div class="loading-page bg-black" id="welcome" style="opacity: 1;">
+    <div class="loading-page bg-white" id="welcome" style="opacity: 1;">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
             <div class="text-center">
                 <h1 class="font-esthetic mb-4" style="font-size: 2.5rem;">The Wedding Of</h1>
@@ -571,17 +571,17 @@
     </div>
 
     <!-- Theme Button -->
-    <button type="button" id="button-theme" style="display: none;" class="btn bg-dark border border-2 btn-sm rounded-circle btn-theme" onclick="theme.change()">
+    <button type="button" id="button-theme" style="display: none;" class="btn bg-light border border-2 btn-sm rounded-circle btn-theme" onclick="theme.change()">
         <i class="fa-solid fa-circle-half-stroke"></i>
     </button>
 
     <!-- Audio Button -->
-    <button type="button" id="button-music" style="display: none;" class="btn bg-dark border border-2 btn-sm rounded-circle btn-music" onclick="audio.button(this)" data-status="true" data-url="{{route('base')}}/assets/music/sound.mp3">
+    <button type="button" id="button-music" style="display: none;" class="btn bg-light border border-2 btn-sm rounded-circle btn-music" onclick="audio.button(this)" data-status="true" data-url="{{route('base')}}/assets/music/sound.mp3">
         <i class="fa-solid fa-circle-pause spin-button"></i>
     </button>
 
     <!-- Loading page -->
-    <div class="loading-page bg-black" id="loading" style="opacity: 1;">
+    <div class="loading-page bg-white" id="loading" style="opacity: 1;">
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh !important;">
             <div class="w-75 text-center">
                 <img class="img-fluid mb-3" src="{{route('base')}}/assets/images/icon-192x192.png" alt="icon" style="width: 3.5rem;">

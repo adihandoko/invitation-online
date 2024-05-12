@@ -47,7 +47,7 @@ class PublicInvitationController extends Controller
         $wedding_date = Carbon::parse($invitation->wedding->wedding_date)->format('l, j F Y');
         $event_date = Carbon::parse($invitation->event_date)->format('Ymd\THis');
         
-        $unduhMantu = "minggu, 23 juni 2024";
+        $unduhMantu = "minggu, 23 Juni 2024";
         $to ="Bapak/Ibu/Saudara/i";
         return view('public.show_invitation', compact(
             'invitation', 
@@ -97,7 +97,7 @@ class PublicInvitationController extends Controller
         $invitation->event_date = Carbon::parse($invitation->event_date)->translatedFormat('l, j F Y');
         $akad_date = Carbon::parse($invitation->wedding->akad_date)->translatedFormat('l, j F Y');
         $wedding_date = Carbon::parse($invitation->wedding->wedding_date)->translatedFormat('l, j F Y');
-        $unduhMantu = "Minggu, 23 juni 2024";
+        $unduhMantu = "Minggu, 23 Juni 2024";
         return view('public.show_invitation', compact(
             'invitation', 
             'photosByCategory',

@@ -370,15 +370,15 @@
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
 
-                        <div class="carousel-inner rounded-4" style="max-height: 500px;">
-                            <div class="carousel-item active" style="max-height: 500px;">
-                                <img style="max-height: 500px;" src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100" onclick="util.modal(this)">
+                        <div class="carousel-inner rounded-4" >
+                            <div class="carousel-item active">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100" onclick="util.modal(this)">
                             </div>
-                            <div class="carousel-item" style="max-height: 500px;">
-                                <img style="max-height: 500px;" src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100" onclick="util.modal(this)">
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100" onclick="util.modal(this)">
                             </div>
-                            <div class="carousel-item" style="max-height: 500px;">
-                                <img  style="max-height: 500px;" src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100" onclick="util.modal(this)">
+                            <div class="carousel-item">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100" onclick="util.modal(this)">
                             </div>
                         </div>
 

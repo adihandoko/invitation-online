@@ -183,7 +183,7 @@
                         </div>
                         <h1 class="font-esthetic" style="font-size: 3rem;">{{$invitation->wedding->groom_name}} </h1>
                         <p class="mt-3 mb-0" style="font-size: 1.25rem;">Putra</p>
-                        <p class="mb-0">Bapak {{$invitation->wedding->bapak_mempelai_pria}} & Ibu {{$invitation->wedding->ibu_mempelai_wanita}}</p>
+                        <p class="mb-0">Bapak {{$invitation->wedding->bapak_mempelai_pria}} & Ibu {{$invitation->wedding->ibu_mempelai_pria}}</p>
                     </div>
 
                     <!-- Love animation -->
@@ -276,7 +276,7 @@
                     <div class="border rounded-pill shadow py-2 px-4 mx-2 mb-4">
 
                         <!-- Ganti waktunya pada data-waktu (sesuai format tersebut) -->
-                        <div class="row justify-content-center" data-time="2024-01-01 00:00:00" id="count-down">
+                        <div class="row justify-content-center" data-time="2024-06-09 10:00:00" id="count-down">
                             <div class="col-3 p-1">
                                 <h2 class="d-inline m-0 p-0" id="day">0</h2><small class="ms-1 me-0 my-0 p-0 d-inline">Hari</small>
                             </div>

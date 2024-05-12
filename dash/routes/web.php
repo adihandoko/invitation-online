@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminRekeningController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicInvitationController;
 use App\Http\Controllers\CommentWeddingController;
+use App\Http\Controllers\MigrationController;
 
 
 /*
@@ -22,6 +23,7 @@ use App\Http\Controllers\CommentWeddingController;
 |
 */
 
+Route::get('/migrate', [MigrationController::class,'migrate']);
 
 Auth::routes();
 

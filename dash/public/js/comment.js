@@ -114,7 +114,12 @@ export const comment = (() => {
                 name: name.value,
                 comment: form.value
             })
-            .then();
+            .then(function () {
+                
+            name.value = "";
+            form.value = null;
+            comment();
+            });
 
         form.disabled = false;
         if (cancel) {
@@ -123,10 +128,11 @@ export const comment = (() => {
 
         btn.restore();
 
-        name.value = "";
-        owns.set(response.data.uuid, response.data.own);
-        form.value = null;
-        comment();
+        // if (response?.code === 201) {
+        //     owns.set(response.data.uuid, response.data.own);
+        //     form.value = null;
+        //     comment();
+        // }
     };
 
     const cancel = (id) => {
@@ -204,7 +210,6 @@ export const comment = (() => {
 
         await request(HTTP_GET, `/api/comment_weddings/${id}`)
             .then((res) => {
-                console.log("gett data");
                 if (res.code !== 200) {
                     return;
                 }

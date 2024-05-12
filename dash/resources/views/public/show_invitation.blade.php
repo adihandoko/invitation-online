@@ -125,7 +125,7 @@
                 <h1 class="font-esthetic my-4" style="font-size: 3rem;">{{$invitation->wedding->groom_name}} & {{$invitation->wedding->bride_name}}</h1>
                 <p class="mb-0" style="font-size: 1.5rem;">{{ $invitation->event_date }} </p>
 
-                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}}&details=The%20Wedding%20of%{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}} {{$invitation->event_location}}&dates={{$event_date}}&location={{$invitation->gmap}">
+                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}}&details=The%20Wedding%20of%{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}} {{$invitation->event_location}}&dates={{$event_date}}&location={{$invitation->gmap}}">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
                 </a>
 

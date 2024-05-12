@@ -375,10 +375,10 @@
                                 <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 2" class="d-block w-100" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 3" class="d-block w-100" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100" onclick="util.modal(this)">
                             </div>
                         </div>
 

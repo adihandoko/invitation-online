@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::delete('/invitations/{id}', [AdminInvitationController::class, 'destroy'])->name('invitations.destroy');
     Route::get('/weddings/create', [AdminWeddingController::class, 'create'])->name('weddings.create');
     Route::post('/weddings', [AdminWeddingController::class, 'store'])->name('weddings.store');
-    Route::put('/weddings/{id}', [AdminWeddingController::class, 'update'])->name('weddings.store');
+    Route::put('/weddings/{id}', [AdminWeddingController::class, 'update'])->name('weddings.update');
     Route::get('/prewedding/create/{invitation}', [AdminPreweddingController::class, 'create'])->name('prewedding.create');
     Route::post('/prewedding/store/{invitation}', [AdminPreweddingController::class, 'store'])->name('prewedding.store');
     Route::post('/rekening/store', [AdminRekeningController::class, 'store'])->name('rekening.store');

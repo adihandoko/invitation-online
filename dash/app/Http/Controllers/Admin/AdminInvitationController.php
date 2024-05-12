@@ -20,30 +20,33 @@ class AdminInvitationController extends Controller
         return view('admin.invitations.index', compact('invitations'));
     }
     
-    public function show($invitation)
+    public function show($invitationId)
     {
-        $invitation = Invitation::with([
-            'eventCategory', 
-        ])->findOrFail($invitation);
+        // Fetch a single invitation with its related data
+        $invitation = Invitation::with('eventCategory', 'wedding', 'preweddingPhotos')
+                                ->findOrFail($invitationId);
         
+        // Check if it's a wedding invitation
         if ($invitation->eventCategory && $invitation->eventCategory->name == 'Pernikahan') {
             
-            $invitation = Invitation::with([
-                'eventCategory', 
-                'wedding',
-                'preweddingPhotos'
-            ])->findOrFail($invitation);
-            // Ambil semua kategori foto prewedding
+            // Fetch prewedding photo categories
             $categories = PrewedPhotoCategory::with('preweddingPhotos')->get();
-            // Fetch bank account details
-            $bankAccounts = RekeningTransfer::with('masterBank')->where('wedding_id', $invitation->wedding->id)->get();
-            // Fetch bank account details
+            
+            // Fetch bank account details if available
+            $bankAccounts = [];
+            if ($invitation->wedding) {
+                $bankAccounts = RekeningTransfer::with('masterBank')
+                                                ->where('wedding_id', $invitation->wedding->id)
+                                                ->get();
+            }
+            
+            // Fetch all available master banks
             $masterBanks = MasterBank::all();
             
-            return view('admin.invitations.show_wedding', 
-            compact('invitation', 'categories','bankAccounts','masterBanks')
-        );
+            // Return the view for wedding invitation
+            return view('admin.invitations.show_wedding', compact('invitation', 'categories', 'bankAccounts', 'masterBanks'));
         } else {
+            // Return the view for non-wedding invitation
             return view('admin.invitations.show_non_wedding', compact('invitation'));
         }
     }

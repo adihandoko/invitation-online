@@ -54,7 +54,9 @@
                             <button type="submit" class="btn btn-primary">Tambahkan Detail Pernikahan</button>
                         </form>
                     @endif
-                </div><div class="col-md-12">
+                </div>
+                @if ($invitation->wedding)
+                <div class="col-md-12">
                     <!-- Tambahkan form untuk menambahkan nomor rekening -->
                     <h4>Tambahkan Nomor Rekening:</h4>
                     <form action="{{ route('admin.rekening.store') }}" method="POST">
@@ -107,7 +109,7 @@
                         <p>Tidak ada rekening bank terkait.</p>
                     @endif
                 </div>
-                
+
                 <div class="col-md-12">
                     @if ($invitation->preweddingPhotos->isNotEmpty())
                         <!-- Tampilkan foto prewedding dengan nama kategori -->
@@ -133,6 +135,7 @@
                     <a href="{{ route('admin.prewedding.create', $invitation->id) }}" class="btn btn-primary">Tambah Foto
                         Prewedding</a>
                 </div>
+                @endif
             </div>
         </div>
     </div>

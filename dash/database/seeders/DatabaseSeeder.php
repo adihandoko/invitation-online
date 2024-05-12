@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
+            AdminUserSeeder::class,
+            EventCategorySeeder::class,
+            MasterBankSeeder::class,
             PrewedPhotoCategorySeeder::class,
             // masukkan seeder lain jika ada
         ]);

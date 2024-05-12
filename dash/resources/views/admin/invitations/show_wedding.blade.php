@@ -10,13 +10,31 @@
             <div class="row">
                 <!-- Kolom kiri -->
                 <div class="col-md-6">
-                    <p><strong>Nama:</strong> {{ $invitation->name }}</p>
-                    <p><strong>Email:</strong> {{ $invitation->email }}</p>
-                    <p><strong>Tanggal Acara:</strong> {{ $invitation->event_date }}</p>
-                    <p><strong>Tempat Acara:</strong> {{ $invitation->event_location }}</p>
-                    <p><strong>Kategori Acara:</strong> {{ $invitation->eventCategory->name }}</p>
-                    <p><strong>Dibuat Pada:</strong> {{ $invitation->created_at->format('Y-m-d H:i:s') }}</p>
+                    @isset($invitation->name)
+                        <p><strong>Nama:</strong> {{ $invitation->name }}</p>
+                    @endisset
+
+                    @isset($invitation->email)
+                        <p><strong>Email:</strong> {{ $invitation->email }}</p>
+                    @endisset
+
+                    @isset($invitation->event_date)
+                        <p><strong>Tanggal Acara:</strong> {{ $invitation->event_date }}</p>
+                    @endisset
+
+                    @isset($invitation->event_location)
+                        <p><strong>Tempat Acara:</strong> {{ $invitation->event_location }}</p>
+                    @endisset
+
+                    @isset($invitation->eventCategory)
+                        <p><strong>Kategori Acara:</strong> {{ $invitation->eventCategory->name }}</p>
+                    @endisset
+
+                    @isset($invitation->created_at)
+                        <p><strong>Dibuat Pada:</strong> {{ $invitation->created_at->format('Y-m-d H:i:s') }}</p>
+                    @endisset
                 </div>
+
                 <!-- Kolom kanan -->
                 <div class="col-md-6">
                     @if ($invitation->wedding)
@@ -46,95 +64,106 @@
                                 <input type="text" name="wedding_venue" id="wedding_venue" class="form-control" required>
                             </div>
                             <div class="form-group">
+                                <label for="wedding_date">Tanggal Pernikahan</label>
+                                <input type="date" name="wedding_date" id="wedding_date" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="akad_date">Tanggal Akad (Opsional)</label>
+                                <input type="date" name="akad_date" id="akad_date" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="number_of_guests">Jumlah Tamu</label>
                                 <input type="number" name="number_of_guests" id="number_of_guests" class="form-control"
                                     required>
                             </div>
-                            <!-- Tambahkan kolom-kolom lain sesuai kebutuhan -->
+                            <!-- Add other necessary form fields -->
+
                             <button type="submit" class="btn btn-primary">Tambahkan Detail Pernikahan</button>
                         </form>
                     @endif
                 </div>
                 @if ($invitation->wedding)
-                <div class="col-md-12">
-                    <!-- Tambahkan form untuk menambahkan nomor rekening -->
-                    <h4>Tambahkan Nomor Rekening:</h4>
-                    <form action="{{ route('admin.rekening.store') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="wedding_id" value="{{ $invitation->wedding->id }}">
-                        <div class="form-group">
-                            <label for="nomor_rekening">Nomor Rekening</label>
-                            <input type="text" name="nomor_rekening" id="nomor_rekening" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="atas_nama">Atas Nama</label>
-                            <input type="text" name="atas_nama" id="atas_nama" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="master_bank_id">Bank</label>
-                            <select name="master_bank_id" id="master_bank_id" class="form-control" required>
-                                <option value="">Pilih Bank</option>
-                                @foreach ($masterBanks as $bank)
-                                    <option value="{{ $bank->id }}">{{ $bank->nama_bank }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <!-- Tambahkan kolom-kolom lain sesuai kebutuhan -->
-                        <button type="submit" class="btn btn-primary">Tambahkan Nomor Rekening</button>
-                    </form>
-                    <!-- Inside your existing HTML code -->
-                    @if ($bankAccounts->isNotEmpty())
-                        <h4>Rekening Bank:</h4>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Nomor Rekening</th>
-                                        <th>Atas Nama</th>
-                                        <th>Bank</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($bankAccounts as $account)
+                    <div class="col-md-12">
+                        <!-- Tambahkan form untuk menambahkan nomor rekening -->
+                        <h4>Tambahkan Nomor Rekening:</h4>
+                        <form action="{{ route('admin.rekening.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="wedding_id" value="{{ $invitation->wedding->id }}">
+                            <div class="form-group">
+                                <label for="nomor_rekening">Nomor Rekening</label>
+                                <input type="text" name="nomor_rekening" id="nomor_rekening" class="form-control"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label for="atas_nama">Atas Nama</label>
+                                <input type="text" name="atas_nama" id="atas_nama" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="master_bank_id">Bank</label>
+                                <select name="master_bank_id" id="master_bank_id" class="form-control" required>
+                                    <option value="">Pilih Bank</option>
+                                    @foreach ($masterBanks as $bank)
+                                        <option value="{{ $bank->id }}">{{ $bank->nama_bank }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <!-- Tambahkan kolom-kolom lain sesuai kebutuhan -->
+                            <button type="submit" class="btn btn-primary">Tambahkan Nomor Rekening</button>
+                        </form>
+                        <!-- Inside your existing HTML code -->
+                        @if ($bankAccounts->isNotEmpty())
+                            <h4>Rekening Bank:</h4>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
                                         <tr>
-                                            <td>{{ $account->nomor_rekening }}</td>
-                                            <td>{{ $account->atas_nama }}</td>
-                                            <td>{{ $account->masterBank->nama_bank }}</td>
+                                            <th>Nomor Rekening</th>
+                                            <th>Atas Nama</th>
+                                            <th>Bank</th>
                                         </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    @else
-                        <p>Tidak ada rekening bank terkait.</p>
-                    @endif
-                </div>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($bankAccounts as $account)
+                                            <tr>
+                                                <td>{{ $account->nomor_rekening }}</td>
+                                                <td>{{ $account->atas_nama }}</td>
+                                                <td>{{ $account->masterBank->nama_bank }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @else
+                            <p>Tidak ada rekening bank terkait.</p>
+                        @endif
+                    </div>
 
-                <div class="col-md-12">
-                    @if ($invitation->preweddingPhotos->isNotEmpty())
-                        <!-- Tampilkan foto prewedding dengan nama kategori -->
-                        @foreach ($categories as $category)
-                            <h4>{{ $category->name }}:</h4>
-                            @if ($category->preweddingPhotos->isNotEmpty())
-                                <div class="row">
-                                    @foreach ($category->preweddingPhotos as $photo)
-                                        <div class="col-md-3">
-                                            <img src="{{ asset('storage/' . $photo->photo_path) }}" class="img-fluid"
-                                                alt="Foto Prewedding">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @else
-                                <p>Belum ada foto prewedding untuk kategori ini.</p>
-                            @endif
-                        @endforeach
-                    @else
-                        <p>Belum ada foto prewedding untuk undangan ini.</p>
-                    @endif
-                    <!-- Tambahkan tombol untuk menambahkan foto prewedding -->
-                    <a href="{{ route('admin.prewedding.create', $invitation->id) }}" class="btn btn-primary">Tambah Foto
-                        Prewedding</a>
-                </div>
+                    <div class="col-md-12">
+                        @if ($invitation->preweddingPhotos->isNotEmpty())
+                            <!-- Tampilkan foto prewedding dengan nama kategori -->
+                            @foreach ($categories as $category)
+                                <h4>{{ $category->name }}:</h4>
+                                @if ($category->preweddingPhotos->isNotEmpty())
+                                    <div class="row">
+                                        @foreach ($category->preweddingPhotos as $photo)
+                                            <div class="col-md-3">
+                                                <img src="{{ asset('storage/' . $photo->photo_path) }}" class="img-fluid"
+                                                    alt="Foto Prewedding">
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @else
+                                    <p>Belum ada foto prewedding untuk kategori ini.</p>
+                                @endif
+                            @endforeach
+                        @else
+                            <p>Belum ada foto prewedding untuk undangan ini.</p>
+                        @endif
+                        <!-- Tambahkan tombol untuk menambahkan foto prewedding -->
+                        <a href="{{ route('admin.prewedding.create', $invitation->id) }}" class="btn btn-primary">Tambah
+                            Foto
+                            Prewedding</a>
+                    </div>
                 @endif
             </div>
         </div>

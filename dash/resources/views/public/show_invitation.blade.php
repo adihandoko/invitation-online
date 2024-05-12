@@ -362,36 +362,36 @@
                 <div class="card-body border rounded-4 shadow p-3">
 
                     <h1 class="font-esthetic text-center py-3" data-aos="fade-down" data-aos-duration="1500" style="font-size: 2rem;">Galeri</h1>
-
-                    <div id="carousel-image-one" data-aos="fade-up" data-aos-duration="1500" class="carousel slide" data-bs-ride="carousel">
+                    
+                    <div id="carousel-image-one" data-aos="fade-up" data-aos-duration="1500" class="carousel slide d-flex align-items-center" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carousel-image-one" data-bs-slide-to="2" aria-label="Slide 3"></button>
                         </div>
-
-                        <div class="carousel-inner rounded-4" >
+                    
+                        <div class="carousel-inner rounded-4">
                             <div class="carousel-item active">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
                             </div>
                         </div>
-
+                    
                         <button class="carousel-control-prev" type="button" data-bs-target="#carousel-image-one" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-
+                    
                         <button class="carousel-control-next" type="button" data-bs-target="#carousel-image-one" data-bs-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
-                    </div>
+                    </div>                    
 
                     {{-- <div id="carousel-image-two" data-aos="fade-up" data-aos-duration="1500" class="carousel slide mt-4" data-bs-ride="carousel">
                         <div class="carousel-indicators">

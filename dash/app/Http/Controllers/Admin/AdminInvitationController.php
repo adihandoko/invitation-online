@@ -24,11 +24,15 @@ class AdminInvitationController extends Controller
     {
         $invitation = Invitation::with([
             'eventCategory', 
-            'wedding',
-            'preweddingPhotos'
         ])->findOrFail($invitation);
         
         if ($invitation->eventCategory && $invitation->eventCategory->name == 'Pernikahan') {
+            
+            $invitation = Invitation::with([
+                'eventCategory', 
+                'wedding',
+                'preweddingPhotos'
+            ])->findOrFail($invitation);
             // Ambil semua kategori foto prewedding
             $categories = PrewedPhotoCategory::with('preweddingPhotos')->get();
             // Fetch bank account details

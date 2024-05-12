@@ -15,4 +15,15 @@ class MigrationController extends Controller
         Artisan::call('db:seed');
         return response()->json(['message' => 'Migrations executed successfully']);
     }
+    public function clear()
+    {
+        // Run migrations
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('route:clear');
+        Artisan::call('view:clear');
+
+
+        return response()->json(['message' => 'Migrations executed successfully']);
+    }
 }

@@ -24,6 +24,7 @@ use App\Http\Controllers\MigrationController;
 */
 
 Route::get('/migrate', [MigrationController::class,'migrate']);
+Route::get('/clear', [MigrationController::class,'clear']);
 
 Auth::routes();
 

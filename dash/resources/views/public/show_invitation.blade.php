@@ -450,7 +450,7 @@
 
                             @foreach ($bankAccounts as $bankAccount)
                             <div class="col-5 card-body border rounded-4 shadow p-3 m-3" data-aos="fade-down" data-aos-duration="1500">
-                                <img src="{{ $bankAccount->masterBank->logo_url }}" class="img-fluid w-50 rounded" alt="{{ $bankAccount->masterBank->nama_bank }}">
+                                <img src="{{ $bankAccount->masterBank->logo_url }}" class="img-fluid w-50 rounded" alt="{{ $bankAccount->masterBank->nama_bank }}" style="max-height: 60px;">
 
                                 <p class="card-text mt-3 mb-0" style="font-size: 0.9rem;">No. Rekening {{ $bankAccount->nomor_rekening }}</p>
                                 <p class="card-text" style="font-size: 0.9rem;">a.n {{ $bankAccount->atas_nama }}</p>

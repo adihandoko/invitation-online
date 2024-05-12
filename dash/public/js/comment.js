@@ -98,7 +98,6 @@ export const comment = (() => {
             return;
         }
         const form = document.getElementById(`form-${id ? `inner-${id}` : 'comment'}`);
-        console.log(form)
         form.disabled = true;
 
         const cancel = document.querySelector(`[onclick="comment.cancel('${id}')"]`);
@@ -124,14 +123,10 @@ export const comment = (() => {
 
         btn.restore();
 
-        if (response?.code === 201) {
-            owns.set(response.data.uuid, response.data.own);
-            form.value = null;
-            if (presence) {
-                presence.value = "0";
-            }
-            comment();
-        }
+        name.value = "";
+        owns.set(response.data.uuid, response.data.own);
+        form.value = null;
+        comment();
     };
 
     const cancel = (id) => {
@@ -209,6 +204,7 @@ export const comment = (() => {
 
         await request(HTTP_GET, `/api/comment_weddings/${id}`)
             .then((res) => {
+                console.log("gett data");
                 if (res.code !== 200) {
                     return;
                 }

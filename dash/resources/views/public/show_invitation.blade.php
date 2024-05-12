@@ -473,11 +473,11 @@
 
                     <div class="mb-3">
                         <label for="form-comment" class="form-label">Ucapan & Doa</label>
-                        <div id="information" class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{-- <div id="information" class="alert alert-info alert-dismissible fade show" role="alert">
                             <p style="font-size: 1.5rem;">Bestieee!!!</p>
                             <p class="m-0">Sekarang bisa format text seperti whatsapp lohh... cobainn sekaranggg, makaciwww bestieee</p>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="localStorage.setItem('alertClosed', 'true');"></button>
-                        </div>
+                        </div> --}}
                         <textarea class="form-control shadow-sm" id="form-inner-{{$invitation->wedding->id}}" rows="4" placeholder="Tulis Ucapan & Doa"></textarea>
                     </div>
 

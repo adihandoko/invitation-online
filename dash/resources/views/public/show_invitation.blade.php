@@ -675,6 +675,9 @@
         <script src="{{ asset('js/comment.js') }}"  ></script>
         <script src="{{ asset('js/progress.js') }}"  ></script>
         <script src="{{ asset('js/pagination.js') }}"  ></script>
+        <script>
+            comment.comment();
+        </script>
     </body>
 
 </html>

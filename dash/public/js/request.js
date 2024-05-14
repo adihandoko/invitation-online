@@ -1,10 +1,9 @@
-export const HTTP_GET = 'GET';
-export const HTTP_POST = 'POST';
-export const HTTP_PUT = 'PUT';
-export const HTTP_PATCH = 'PATCH';
-export const HTTP_DELETE = 'DELETE';
-
-export const request = (method, path) => {
+var HTTP_GET = 'GET';
+var HTTP_POST = 'POST';
+var HTTP_PUT = 'PUT';
+var HTTP_PATCH = 'PATCH';
+var HTTP_DELETE = 'DELETE';
+var request = (method, path) => {
 
     let url = document.querySelector('body').getAttribute('data-url');
     let req = {

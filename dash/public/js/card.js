@@ -1,9 +1,8 @@
-import { util } from './util.js';
-import { theme } from './theme.js';
-import { storage } from './storage.js';
-import { pagination } from './pagination.js';
-
-export const card = (() => {
+// import { util } from './util.js';
+// import { theme } from './theme.js';
+// import { storage } from './storage.js';
+// import { pagination } from './pagination.js';
+var card = (() => {
 
     const user = storage('user');
     const owns = storage('owns');

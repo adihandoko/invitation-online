@@ -1,7 +1,6 @@
-import { storage } from './storage.js';
-import { request, HTTP_PATCH, HTTP_POST } from './request.js';
-
-export const like = (() => {
+// import { storage } from './storage.js';
+// import { request, HTTP_PATCH, HTTP_POST } from './request.js';
+var like = (() => {
 
     const likes = storage('likes');
     const session = storage('session');

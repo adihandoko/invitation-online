@@ -1,4 +1,4 @@
-export const navbar = (() => {
+var navbar = (() => {
 
     const buttonNavHome = (btn) => {
         bootstrap.Tab.getOrCreateInstance(document.getElementById('button-home')).show();

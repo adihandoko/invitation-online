@@ -1,10 +1,10 @@
-import { storage } from './storage.js';
+// import { storage } from './storage.js';
 
-export const THEME_DARK = 'dark';
-export const THEME_LIGHT = 'light';
-export const THEME_BS_DATA = 'data-bs-theme';
+var THEME_DARK = 'dark';
+var THEME_LIGHT = 'light';
+var THEME_BS_DATA = 'data-bs-theme';
 
-export const theme = (() => {
+var theme = (() => {
 
     const theme = storage('theme');
 

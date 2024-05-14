@@ -1,10 +1,10 @@
-import { audio } from './audio.js';
-import { theme } from './theme.js';
-import { comment } from './comment.js';
-import { storage } from './storage.js';
-import { request, HTTP_GET } from './request.js';
+// import { audio } from './audio.js';
+// import { theme } from './theme.js';
+// import { comment } from './comment.js';
+// import { storage } from './storage.js';
+// import { request, HTTP_GET } from './request.js';
 
-export const util = (() => {
+var util = (() => {
 
     const opacity = (id, speed = 0.01) => {
         const element = document.getElementById(id);

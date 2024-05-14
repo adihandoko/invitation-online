@@ -1,6 +1,6 @@
-import { comment } from './comment.js';
+// import { comment } from './comment.js';
 
-export const pagination = (() => {
+var pagination = (() => {
 
     const perPage = 10;
     let pageNow = 0;

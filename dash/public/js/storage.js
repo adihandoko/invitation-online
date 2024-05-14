@@ -1,4 +1,4 @@
-export const storage = (table) => {
+var storage = (table) => {
 
     if (!localStorage.getItem(table)) {
         localStorage.setItem(table, JSON.stringify({}));

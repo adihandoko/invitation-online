@@ -1,6 +1,6 @@
-import { util } from './util.js';
+// import { util } from './util.js';
 
-export const progress = (() => {
+var progress = (() => {
 
     const assets = document.querySelectorAll('img');
     const info = document.getElementById('progress-info');

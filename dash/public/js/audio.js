@@ -1,6 +1,7 @@
-export const audio = (() => {
+var audio = (() => {
 
-    const music = document.getElementById('button-music');
+    console.log(document.getElementById('button-music'))
+    var music = document.getElementById('button-music');
     let audio = null;
 
     const getAudio = () => {

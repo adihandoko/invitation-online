@@ -2,11 +2,16 @@
 <html lang="id" data-bs-theme="light">
 
 <head>
-    <script src="{{ asset('js/app_u.js') }}" type="module" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- <script src="{{ asset('js/app_u.js') }}" type="module" defer></script> --}}
+
+    <script src="{{ asset('js/util.js') }}" ></script>
     <!-- Common Tag -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online</title>
+    <title>Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan
+        {{ $invitation->wedding->bride_name }} Secara Online</title>
 
     <!-- SEO Tag -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -14,30 +19,39 @@
     <meta name="language" content="Indonesia">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="googlebot" content="index, follow, max-image-preview:large">
-    <meta name="title" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
-    <meta name="description" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
-    <meta name="keywords" content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
-    <meta property="og:title" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
-    <meta property="og:description" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
-    <meta property="og:keywords" content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
+    <meta name="title"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+    <meta name="description"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+    <meta name="keywords"
+        content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
+    <meta property="og:title"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+    <meta property="og:description"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+    <meta property="og:keywords"
+        content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
     <meta property="og:image" content="{{ asset('storage/' . $photosByCategory['photo couple']) }}">
     <meta property="og:image:secure_url" content="{{ asset('storage/' . $photosByCategory['photo couple']) }}">
     <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:alt" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
+    <meta property="og:image:alt"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="id_ID">
-    <meta property="og:url" content="{{route('base')}}">
-    <meta property="og:site_name" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
+    <meta property="og:url" content="{{ route('base') }}">
+    <meta property="og:site_name"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
 
     <!-- Appearance -->
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Website Undangan Pernikahan {{$invitation->wedding->groom_name}} dan {{$invitation->wedding->bride_name}} Secara Online">
+    <meta name="apple-mobile-web-app-title"
+        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
     <meta name="theme-color" content="#111111">
     <meta name="color-scheme" content="light">
-    <link rel="canonical" href="{{route('base')}}">
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
-    <link rel="apple-touch-icon" sizes="192x192" type="image/png" href="{{ asset('assets/images/icon-192x192.png')}}">
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico')}}">
+    <link rel="canonical" href="{{ route('base') }}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="192x192" type="image/png" href="{{ asset('assets/images/icon-192x192.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
 
     <!-- Preconnect and preload CDN -->
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
@@ -46,9 +60,12 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css" integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g=" crossorigin="anonymous" as="style">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css"
+        integrity="sha256-WAgYcAck1C1/zEl5sBl5cfyhxtLgKGdpI3oKyJffVRI=" crossorigin="anonymous" as="style">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha256-PI8n5gCcz9cQqQXm3PEtDuPG8qx9oFsFctPg0S5zb8g=" crossorigin="anonymous" as="style">
+    <link rel="preload"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha256-GqiEX9BuR1rv5zPU5Vs2qS/NSHl1BJyBcjQYJ6ycwD4=" crossorigin="anonymous" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha256-CDOy6cOibCWEdsRiZuaHf8dSGGJRYuBGC+mjoJimHGw=" crossorigin="anonymous" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous" as="script">
@@ -69,7 +86,7 @@
     <link rel="stylesheet" href="{{ asset('css/app_u.css') }}">
 </head>
 
-<body data-key="bfb9cfea33ab7ae21a315fbd6f065a815d3e20ff2f007aa2ca" data-url="{{route('base')}}" style="overflow-y: hidden;">
+<body data-key="bfb9cfea33ab7ae21a315fbd6f065a815d3e20ff2f007aa2ca" data-url="{{ route('base') }}" style="overflow-y: hidden;">
 
     <!-- Navbar Bottom -->
     <nav class="navbar bg-light navbar-expand fixed-bottom rounded-top-4 p-0" id="navbar-menu">
@@ -122,10 +139,10 @@
                     </div>
                 </div>
 
-                <h1 class="font-esthetic my-4" style="font-size: 3rem;">{{$invitation->wedding->groom_name}} & {{$invitation->wedding->bride_name}}</h1>
+                <h1 class="font-esthetic my-4" style="font-size: 3rem;">{{ $invitation->wedding->groom_name }} & {{ $invitation->wedding->bride_name }}</h1>
                 <p class="mb-0" style="font-size: 1.5rem;">{{ $akad_date }} </p>
 
-                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}}&details=The%20Wedding%20of%{{$invitation->wedding->groom_name}}%20and%20{{$invitation->wedding->bride_name}} {{$invitation->event_location}}&dates={{$event_date}}&location={{$invitation->gmap}}">
+                <a class="btn btn-outline-light btn-sm shadow rounded-pill px-3 my-2" target="_blank" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Wedding%20of%20{{ $invitation->wedding->groom_name }}%20and%20{{ $invitation->wedding->bride_name }}&details=The%20Wedding%20of%{{ $invitation->wedding->groom_name }}%20and%20{{ $invitation->wedding->bride_name }} {{ $invitation->event_location }}&dates={{ $event_date }}&location={{ $invitation->gmap }}">
                     <i class="fa-solid fa-calendar-check me-2"></i>Save The Date
                 </a>
 
@@ -162,7 +179,7 @@
                 <h1 class="font-esthetic py-4 px-2" style="font-size: 2rem">Assalamualaikum Warahmatullahi Wabarakatuh</h1>
 
                 <p class="pb-3 px-3">
-                    Tanpa mengurangi rasa hormat. Kami mengundang {{$to}} serta kerabat
+                    Tanpa mengurangi rasa hormat. Kami mengundang {{ $to }} serta kerabat
                     sekalian untuk menghadiri acara pernikahan kami:
                 </p>
 
@@ -181,9 +198,9 @@
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
                             <img src="{{ asset('storage/' . $photosByCategory['photo mempelai pria']) }}" alt="cowo" onclick="util.modal(this)">
                         </div>
-                        <h1 class="font-esthetic" style="font-size: 3rem;">{{$invitation->wedding->groom_name}} </h1>
+                        <h1 class="font-esthetic" style="font-size: 3rem;">{{ $invitation->wedding->groom_name }} </h1>
                         <p class="mt-3 mb-0" style="font-size: 1.25rem;">Putra</p>
-                        <p class="mb-0">Bapak {{$invitation->wedding->bapak_mempelai_pria}} & Ibu {{$invitation->wedding->ibu_mempelai_pria}}</p>
+                        <p class="mb-0">Bapak {{ $invitation->wedding->bapak_mempelai_pria }} & Ibu {{ $invitation->wedding->ibu_mempelai_pria }}</p>
                     </div>
 
                     <!-- Love animation -->
@@ -210,9 +227,9 @@
                         <div class="img-crop border border-3 border-light shadow my-4 mx-auto">
                             <img src="{{ asset('storage/' . $photosByCategory['photo mempelai wanita']) }}" alt="cewe" onclick="util.modal(this)">
                         </div>
-                        <h1 class="font-esthetic" style="font-size: 3rem;">{{$invitation->wedding->bride_name}}</h1>
+                        <h1 class="font-esthetic" style="font-size: 3rem;">{{ $invitation->wedding->bride_name }}</h1>
                         <p class="mt-3 mb-0" style="font-size: 1.25rem;">Putri</p>
-                        <p class="mb-0">Bapak {{$invitation->wedding->bapak_mempelai_wanita}} & Ibu {{$invitation->wedding->ibu_mempelai_wanita}}</p>
+                        <p class="mb-0">Bapak {{ $invitation->wedding->bapak_mempelai_wanita }} & Ibu {{ $invitation->wedding->ibu_mempelai_wanita }}</p>
                     </div>
                 </div>
 
@@ -309,16 +326,16 @@
                     <div class="overflow-x-hidden">
                         <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
                             <h1 class="font-esthetic" style="font-size: 2rem;">Resepsi & Akad</h1>
-                            <p>{{$akad_date}}</p>
+                            <p>{{ $akad_date }}</p>
                             <p>Pukul 08:00 - selesai</p>
                         </div>
 
                         <div class="py-2" data-aos="fade-up" data-aos-duration="1500">
-                            <a href="{{$invitation->gmap}}" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
+                            <a href="{{ $invitation->gmap }}" target="_blank" class="btn btn-outline-light btn-sm rounded-pill shadow-sm mb-2 px-3">
                                 <i class="fa-solid fa-map-location-dot me-2"></i>Lihat Google Maps
                             </a>
                             <p class="mb-0 mt-1 mx-1 pb-4" style="font-size: 0.9rem;">
-                                {{$invitation->event_location}}
+                                {{ $invitation->event_location }}
                             </p>
                         </div>
                         {{-- 
@@ -329,7 +346,7 @@
 
                         <div class="py-2" data-aos="fade-left" data-aos-duration="1500">
                             <h1 class="font-esthetic" style="font-size: 2rem;">Unduh Mantu</h1>
-                            <p>{{$unduhMantu}}</p>
+                            <p>{{ $unduhMantu }}</p>
                             <p>Pukul 09:00 - selesai</p>
                         </div>
 
@@ -372,13 +389,13 @@
                     
                         <div class="carousel-inner rounded-4">
                             <div class="carousel-item active">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 1']) }}" alt="gambar 1" class="d-block w-100 h-100" style="object-fit: cover; " width="460" height="345" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 2']) }}" alt="gambar 2" class="d-block w-100 h-100" style="object-fit: cover; " width="460" height="345" onclick="util.modal(this)">
                             </div>
                             <div class="carousel-item">
-                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100 h-100" style="object-fit: cover; height: 500px;" onclick="util.modal(this)">
+                                <img src="{{ asset('storage/' . $photosByCategory['photo 3']) }}" alt="gambar 3" class="d-block w-100 h-100" style="object-fit: cover; " width="460" height="345" onclick="util.modal(this)">
                             </div>
                         </div>
                     
@@ -457,8 +474,7 @@
 
                                 <!-- Ubah juga data-copy sesuai dengan no rekening -->
                                 <button class="btn btn-light btn-sm rounded-3" data-copy="{{ $bankAccount->nomor_rekening }}" onclick="util.copy(this, 'Tersalin')" autofocus>Salin No. Rekening</button>
-                            </div>
-                            @endforeach
+                            </div> @endforeach
                         </div>
                     </div>
                 </div>
@@ -466,19 +482,20 @@
         </div>
 
         <!-- Comments -->
-        <section class="m-0 p-0" id="ucapan">
-            <div class="container">
+        <section class="m-0
+        p-0" id="ucapan">
+    <div class="container">
 
-                <div class="card-body border rounded-4 shadow p-3">
-                    <h1 class="font-esthetic text-center mb-3" style="font-size: 3rem;">Ucapan & Doa</h1>
-                    <div class="mb-1" id="balasan"></div>
+        <div class="card-body border rounded-4 shadow p-3">
+            <h1 class="font-esthetic text-center mb-3" style="font-size: 3rem;">Ucapan & Doa</h1>
+            <div class="mb-1" id="balasan"></div>
 
-                    <div class="mb-3">
-                        <label for="form-name" class="form-label">Nama</label>
-                        <input type="text" class="form-control shadow-sm" id="form-name" placeholder="Isikan Nama Anda">
-                    </div>
+            <div class="mb-3">
+                <label for="form-name" class="form-label">Nama</label>
+                <input type="text" class="form-control shadow-sm" id="form-name" placeholder="Isikan Nama Anda">
+            </div>
 
-                    {{-- <div class="mb-3">
+            {{-- <div class="mb-3">
                         <label for="form-presence" class="form-label" id="label-kehadiran">Kehadiran</label>
                         <select class="form-select shadow-sm" id="form-presence">
                             <option value="0" selected>Konfirmasi Kehadiran</option>
@@ -487,49 +504,56 @@
                         </select>
                     </div> --}}
 
-                    <div class="mb-3">
-                        <label for="form-comment" class="form-label">Ucapan & Doa</label>
-                        <div id="information" class="alert alert-info alert-dismissible fade show" role="alert" style="display:none">
-                            <p style="font-size: 1.5rem;">Bestieee!!!</p>
-                            <p class="m-0">Sekarang bisa format text seperti whatsapp lohh... cobainn sekaranggg, makaciwww bestieee</p>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="localStorage.setItem('alertClosed', 'true');"></button>
-                        </div>
-                        <textarea class="form-control shadow-sm" id="form-inner-{{$invitation->wedding->id}}" rows="4" placeholder="Tulis Ucapan & Doa"></textarea>
-                    </div>
-
-                    <div class="d-grid">
-                        <button data-wedding_id="{{$invitation->wedding->id}}" id="button-id" class="btn btn-primary btn-sm rounded-3 shadow m-1" onclick="comment.send(this)">
-                            <i class="fa-solid fa-paper-plane me-1"></i>Send
-                        </button>
-                    </div>
+            <div class="mb-3">
+                <label for="form-comment" class="form-label">Ucapan & Doa</label>
+                <div id="information" class="alert alert-info alert-dismissible fade show" role="alert"
+                    style="display:none">
+                    <p style="font-size: 1.5rem;">Bestieee!!!</p>
+                    <p class="m-0">Sekarang bisa format text seperti whatsapp lohh... cobainn sekaranggg, makaciwww
+                        bestieee</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+                        onclick="localStorage.setItem('alertClosed', 'true');"></button>
                 </div>
-
-                <div class="mt-4 mb-2 row" id="comments"></div>
-
-                <nav class="d-flex justify-content-center mb-0" style="display: none">
-                    <ul class="pagination mb-0"  style="display: none">
-                        <li class="page-item disabled" id="previous">
-                            <button class="page-link" onclick="pagination.previous(this)">
-                                <i class="fa-solid fa-circle-left me-1"></i>Previous
-                            </button>
-                        </li>
-                        <li class="page-item disabled">
-                            <span class="page-link text-light" id="page">1</span>
-                        </li>
-                        <li class="page-item" id="next">
-                            <button class="page-link" onclick="pagination.next(this)">
-                                Next<i class="fa-solid fa-circle-right ms-1"></i>
-                            </button>
-                        </li>
-                    </ul>
-                </nav>
+                <textarea class="form-control shadow-sm" id="form-inner-{{ $invitation->wedding->id }}" rows="4"
+                    placeholder="Tulis Ucapan & Doa"></textarea>
             </div>
-        </section>
 
-        <!-- Wave Separator -->
-        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
-            <path fill="currentColor" fill-opacity="1" d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
-        </svg>
+            <div class="d-grid">
+                <button data-wedding_id="{{ $invitation->wedding->id }}" id="button-id"
+                    class="btn btn-primary btn-sm rounded-3 shadow m-1" onclick="comment.send(this)">
+                    <i class="fa-solid fa-paper-plane me-1"></i>Send
+                </button>
+            </div>
+        </div>
+
+        <div class="mt-4 mb-2 row" id="comments"></div>
+
+        <nav class="d-flex justify-content-center mb-0" style="display: none">
+            <ul class="pagination mb-0" style="display: none">
+                <li class="page-item disabled" id="previous">
+                    <button class="page-link" onclick="pagination.previous(this)">
+                        <i class="fa-solid fa-circle-left me-1"></i>Previous
+                    </button>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link text-light" id="page">1</span>
+                </li>
+                <li class="page-item" id="next">
+                    <button class="page-link" onclick="pagination.next(this)">
+                        Next<i class="fa-solid fa-circle-right ms-1"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </section>
+
+    <!-- Wave Separator -->
+    <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="color-theme-white">
+        <path fill="currentColor" fill-opacity="1"
+            d="M0,224L34.3,234.7C68.6,245,137,267,206,266.7C274.3,267,343,245,411,234.7C480,224,549,224,617,213.3C685.7,203,754,181,823,197.3C891.4,213,960,267,1029,266.7C1097.1,267,1166,213,1234,192C1302.9,171,1371,181,1406,186.7L1440,192L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+        </path>
+    </svg>
     </main>
 
     <!-- Footer Undangan -->
@@ -542,8 +566,10 @@
                     berkenan hadir untuk memberikan do'a restunya kami ucapkan terimakasih.
                 </p>
 
-                <h1 class="font-esthetic" data-aos="fade-up" data-aos-duration="2000">Wassalamualaikum Warahmatullahi Wabarakatuh</h1>
-                <h1 class="font-arabic py-4 px-2" data-aos="fade-up" data-aos-duration="2000" style="font-size: 2rem;">اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ</h1>
+                <h1 class="font-esthetic" data-aos="fade-up" data-aos-duration="2000">Wassalamualaikum Warahmatullahi
+                    Wabarakatuh</h1>
+                <h1 class="font-arabic py-4 px-2" data-aos="fade-up" data-aos-duration="2000"
+                    style="font-size: 2rem;">اَلْحَمْدُ لِلّٰهِ رَبِّ الْعٰلَمِيْنَۙ</h1>
 
                 <hr class="mt-3 mb-2">
 
@@ -576,7 +602,8 @@
                     <img src="{{ asset('storage/' . $photosByCategory['photo couple']) }}" alt="background">
                 </div>
 
-                <h1 class="font-esthetic my-4" style="font-size: 2.5rem;"> {{ $invitation->wedding->groom_name }} & {{ $invitation->wedding->bride_name }}</h1>
+                <h1 class="font-esthetic my-4" style="font-size: 2.5rem;"> {{ $invitation->wedding->groom_name }} &
+                    {{ $invitation->wedding->bride_name }}</h1>
                 <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
 
                 <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.open(this)">
@@ -587,12 +614,15 @@
     </div>
 
     <!-- Theme Button -->
-    <button type="button" id="button-theme" style="display: none;" class="btn bg-light border border-2 btn-sm rounded-circle btn-theme" onclick="theme.change()">
+    <button type="button" id="button-theme" style="display: none;"
+        class="btn bg-light border border-2 btn-sm rounded-circle btn-theme" onclick="theme.change()">
         <i class="fa-solid fa-circle-half-stroke"></i>
     </button>
 
     <!-- Audio Button -->
-    <button type="button" id="button-music" style="display: none;" class="btn bg-light border border-2 btn-sm rounded-circle btn-music" onclick="audio.button(this)" data-status="true" data-url="{{route('base')}}/assets/music/sound.mp3">
+    <button type="button" id="button-music" style="display: none;"
+        class="btn bg-light border border-2 btn-sm rounded-circle btn-music" onclick="audio.button(this)"
+        data-status="true" data-url="{{ route('base') }}/assets/music/sound.mp3">
         <i class="fa-solid fa-circle-pause spin-button"></i>
     </button>
 
@@ -619,7 +649,8 @@
             <div class="modal-content rounded-4">
                 <div class="modal-body p-0">
                     <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
-                        <img src="{{ asset('storage/' . $photosByCategory['photo couple']) }}" class="w-100" alt="image" id="show-modal-image">
+                        <img src="{{ asset('storage/' . $photosByCategory['photo couple']) }}" class="w-100"
+                            alt="image" id="show-modal-image">
                     </div>
                 </div>
             </div>
@@ -627,9 +658,23 @@
     </div>
 
     <!-- Dependencies JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha256-CDOy6cOibCWEdsRiZuaHf8dSGGJRYuBGC+mjoJimHGw=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.js" integrity="sha256-mvTaORw+RTgKnX6ZHT4P5Sc9DNP2TBpSGII7F3sT8iE=" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha256-CDOy6cOibCWEdsRiZuaHf8dSGGJRYuBGC+mjoJimHGw=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"
+        integrity="sha256-pQBbLkFHcP1cy0C8IhoSdxlm0CtcH5yJ2ki9jjgR03c=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.js"
+        integrity="sha256-mvTaORw+RTgKnX6ZHT4P5Sc9DNP2TBpSGII7F3sT8iE=" crossorigin="anonymous"></script>
+
+        <script src="{{ asset('js/audio.js') }}"  ></script>
+        <script src="{{ asset('js/storage.js') }}"></script>
+        <script src="{{ asset('js/request.js') }}"  ></script>
+    
+        <script src="{{ asset('js/like.js') }}"></script>
+        <script src="{{ asset('js/theme.js') }}" ></script>
+        <script src="{{ asset('js/card.js') }}"></script>
+        <script src="{{ asset('js/comment.js') }}"  ></script>
+        <script src="{{ asset('js/progress.js') }}"  ></script>
+        <script src="{{ asset('js/pagination.js') }}"  ></script>
+    </body>
 
 </html>

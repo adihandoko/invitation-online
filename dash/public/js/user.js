@@ -1,8 +1,8 @@
-import { util } from './util.js';
-import { storage } from './storage.js';
-import { request, HTTP_GET, HTTP_PATCH, HTTP_PUT } from './request.js';
+// import { util } from './util.js';
+// import { storage } from './storage.js';
+// import { request, HTTP_GET, HTTP_PATCH, HTTP_PUT } from './request.js';
 
-export const user = (() => {
+var user = (() => {
 
     const user = storage('user');
     const token = storage('session');

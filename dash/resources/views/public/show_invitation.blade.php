@@ -10,7 +10,7 @@
     <!-- Common Tag -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan
+    <title>Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan
         {{ $invitation->wedding->bride_name }} Secara Online</title>
 
     <!-- SEO Tag -->
@@ -606,7 +606,7 @@
                     {{ $invitation->wedding->bride_name }}</h1>
                 <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
 
-                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.open(this)">
+                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.open(this);comment.comment()">
                     <i class="fa-solid fa-envelope-open me-2"></i>Open Invitation
                 </button>
             </div>
@@ -675,9 +675,9 @@
         <script src="{{ asset('js/comment.js') }}"  ></script>
         <script src="{{ asset('js/progress.js') }}"  ></script>
         <script src="{{ asset('js/pagination.js') }}"  ></script>
-        <script>
+        {{-- <script>
             comment.comment();
-        </script>
+        </script> --}}
     </body>
 
 </html>

@@ -36,7 +36,8 @@ var card = (() => {
 
     const convertMarkdownToHTML = (input) => {
         lists.forEach((v, k) => {
-            const regex = new RegExp(`\\${k}(?=\\S)(.*?)(?<!\\s)\\${k}`, 'gs');
+            //update
+            const regex = new RegExp(`\\${k}(?=\\S)(.?)(?<!\\s)\\${k}`, 'gs');
             input = input.replace(regex, v);
         });
 

@@ -202,9 +202,9 @@ export const util = (() => {
         audio.play();
         document.querySelector('body').style.overflowY = 'scroll';
 
-        if (localStorage.getItem('alertClosed')) {
-            document.getElementById('information').style.display = 'none';
-        }
+        // if (localStorage.getItem('alertClosed')) {
+        //     document.getElementById('information').style.display = 'none';
+        // }
 
         opacity('welcome', 0.025);
         countDownDate();

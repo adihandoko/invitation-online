@@ -506,14 +506,6 @@
 
             <div class="mb-3">
                 <label for="form-comment" class="form-label">Ucapan & Doa</label>
-                <div id="information" class="alert alert-info alert-dismissible fade show" role="alert"
-                    style="display:none">
-                    <p style="font-size: 1.5rem;">Bestieee!!!</p>
-                    <p class="m-0">Sekarang bisa format text seperti whatsapp lohh... cobainn sekaranggg, makaciwww
-                        bestieee</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
-                        onclick="localStorage.setItem('alertClosed', 'true');"></button>
-                </div>
                 <textarea class="form-control shadow-sm" id="form-inner-{{ $invitation->wedding->id }}" rows="4"
                     placeholder="Tulis Ucapan & Doa"></textarea>
             </div>
@@ -606,7 +598,7 @@
                     {{ $invitation->wedding->bride_name }}</h1>
                 <div id="guest-name" data-message="Kepada Yth Bapak/Ibu/Saudara/i"></div>
 
-                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.open(this);comment.comment()">
+                <button type="button" class="btn btn-light shadow rounded-4 mt-4" onclick="util.open(this);">
                     <i class="fa-solid fa-envelope-open me-2"></i>Open Invitation
                 </button>
             </div>
@@ -675,9 +667,9 @@
         <script src="{{ asset('js/comment.js') }}"  ></script>
         <script src="{{ asset('js/progress.js') }}"  ></script>
         <script src="{{ asset('js/pagination.js') }}"  ></script>
-        {{-- <script>
+        <script>
             comment.comment();
-        </script> --}}
+        </script>
     </body>
 
 </html>

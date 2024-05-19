@@ -204,11 +204,11 @@ var comment = (() => {
         button.innerText = tmp;
     };
 
-    const comment = async () => {
+    const comment =  () => {
         const id = document.getElementById(`button-id`).getAttribute('data-wedding_id');
         card.renderLoading();
 
-        await request(HTTP_GET, `/api/comment_weddings/${id}`)
+         request(HTTP_GET, `/api/comment_weddings/${id}`)
             .then((res) => {
                 if (res.code !== 200) {
                     return;

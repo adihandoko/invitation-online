@@ -325,7 +325,7 @@
 
                     <div class="overflow-x-hidden">
                         <div class="py-2" data-aos="fade-right" data-aos-duration="1500">
-                            <h1 class="font-esthetic" style="font-size: 2rem;">Resepsi & Akad</h1>
+                            <h1 class="font-esthetic" style="font-size: 2rem;">Akad & Resepsi</h1>
                             <p>{{ $akad_date }}</p>
                             <p>Pukul 08:00 - selesai</p>
                         </div>
@@ -492,7 +492,7 @@
 
             <div class="mb-3">
                 <label for="form-name" class="form-label">Nama</label>
-                <input type="text" class="form-control shadow-sm" id="form-name" placeholder="Isikan Nama Anda">
+                <input type="text" class="form-control shadow-sm" id="form-name" placeholder="Isikan Nama Anda" required>
             </div>
 
             {{-- <div class="mb-3">

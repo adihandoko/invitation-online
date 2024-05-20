@@ -94,10 +94,15 @@ var comment = (() => {
 
         const name = document.getElementById('form-name');
         if (name.value.length == 0) {
-            alert('Please fill name');
+            alert('Mohon isi nama');
             return;
         }
         const form = document.getElementById(`form-${id ? `inner-${id}` : 'comment'}`);
+
+        if (form.value.length == 0) {
+            alert('Mohon isi ucapan dan doa');
+            return;
+        }
         form.disabled = true;
 
         const cancel = document.querySelector(`[onclick="comment.cancel('${id}')"]`);
@@ -106,6 +111,7 @@ var comment = (() => {
         }
 
         const btn = util.disableButton(button);
+
 
         const response = await request(HTTP_POST, '/api/comment_weddings')
             .token(session.get('token'))

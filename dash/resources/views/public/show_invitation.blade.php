@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan
-        {{ $invitation->wedding->bride_name }} Secara Online</title>
+        {{ $invitation->wedding->bride_name }} </title>
 
     <!-- SEO Tag -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,32 +20,32 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="googlebot" content="index, follow, max-image-preview:large">
     <meta name="title"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }}">
     <meta name="description"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="{{ $akad_date }}">
     <meta name="keywords"
         content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
     <meta property="og:title"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} ">
     <meta property="og:description"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="{{ $akad_date }}">
     <meta property="og:keywords"
         content="undangan, wedding, undangan digital, undangan online, wedding invitation, template undangan, template undangan pernikahan, undangan pernikahan, template undangan online, wedding invitation github, template website, template website undangan pernikahan">
     <meta property="og:image" content="{{ asset('storage/' . $photosByCategory['photo couple']) }}">
     <meta property="og:image:secure_url" content="{{ asset('storage/' . $photosByCategory['photo couple']) }}">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} ">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="id_ID">
     <meta property="og:url" content="{{ route('base') }}">
     <meta property="og:site_name"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} ">
 
     <!-- Appearance -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title"
-        content="Website Undangan Pernikahan {{ $invitation->wedding->groom_name }} dan {{ $invitation->wedding->bride_name }} Secara Online">
+        content="Undangan Pernikahan {{ $invitation->wedding->groom_name }} & {{ $invitation->wedding->bride_name }} ">
     <meta name="theme-color" content="#111111">
     <meta name="color-scheme" content="light">
     <link rel="canonical" href="{{ route('base') }}">
